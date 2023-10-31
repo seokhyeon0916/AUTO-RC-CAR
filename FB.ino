@@ -70,7 +70,12 @@ void loop() {
         Stop();
         break;
     }
+    Obstacle_Check();
+    
   }
+
+  
+  
    // Forward();
     //delay(100);
     //Stop();
@@ -84,22 +89,24 @@ void Obstacle_Check() {
 
  // Serial.println(distance);
 
-  while(distance < 200) {
+  if (distance < 200) {
     if(distance < 180) {
-      //Backward();
-      delay(250);
+      Backward();
+      delay(1000);
       Stop();
       delay(50);
-      //Distance_Measurement();
+      Distance_Measurement();
     }
     else {
       if(val == 0) {
         Right();
         delay(400);
+        Stop();
       }
       else if(val == 1) {
         Left();
         delay(400);
+        Stop();
       }
       Distance_Measurement();
     }
